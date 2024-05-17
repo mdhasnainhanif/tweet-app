@@ -5,22 +5,16 @@ import Sidebar from '../components/Sidebar'
 const Home = () => {
   return (
     <>
-        <section>
-            <div className="container-fluid p-0">
-                <div className="row">
-                    <div className="col-md-3 p-0">
-                        <div className='px-2'>
-                            <Sidebar/>
-                        </div>
-                    </div>
-                    <div className="col-md-9 p-0">
-                        <div>
-                            <Header/>
-                        </div>
-                    </div>
+        <div className='main-wraperr'>
+            <Header/>
+            <Sidebar/>
+            <div className="main-content">
+                <div className="count_card bg-primary px-5 py-3 rounded w_fit">
+                    <h3 className='text-light'>All Tweets Count</h3>
+                    <h5 className='text-light text-start mt-2'>04</h5>
                 </div>
             </div>
-        </section>
+        </div>
     </>
   )
 }
