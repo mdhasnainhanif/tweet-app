@@ -8,12 +8,12 @@ const Home = () => {
         <section>
             <div className="container-fluid p-0">
                 <div className="row">
-                    <div className="col-md-3">
-                        <div>
+                    <div className="col-md-3 p-0">
+                        <div className='px-2'>
                             <Sidebar/>
                         </div>
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-9 p-0">
                         <div>
                             <Header/>
                         </div>
