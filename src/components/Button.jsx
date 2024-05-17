@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Button = (props) => {
+const Button = ({className, name, imgSrc, imgClass, imgAlt, onClick}) => {
   return (
     <>
-        <button className={props.className}>{props.name}</button>
+        <button className={className}>{name}&nbsp;{imgSrc && <img className={imgClass} onClick={onClick} src={imgSrc} alt={imgAlt} />}</button>
     </>
   )
 }

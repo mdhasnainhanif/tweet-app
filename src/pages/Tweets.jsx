@@ -1,26 +1,31 @@
 import React from "react";
+import TweetCard from "../components/TweetCard";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
-const Home = () => {
+
+const Tweets = () => {
+
   return (
     <>
       <div className="main-wraperr">
         <Header />
         <Sidebar />
         <div className="main-content">
-          <div className="row">
-            <div className="col-md-4">
-              <div className="count_card bg-primary px-4 py-3 rounded ">
-                <h4 className="text-light text-start">Tweets Count</h4>
-                <h5 className="text-light text-start mt-3">01</h5>
+          <div className="container">
+            <h2 className="mb-3 text-start">Tweets</h2>
+            <div className="row mt-5">
+              <div className="col-8">
+                <TweetCard />
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      
     </>
   );
 };
 
-export default Home;
+export default Tweets;
