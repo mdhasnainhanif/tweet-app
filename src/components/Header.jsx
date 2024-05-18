@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="py-3 px-5">
+    <header className="py-3 px-md-5 px-2">
       <div className="header_dropdown">
         {/* <li class="header_li"> */}
         <div className="d-flex">

@@ -57,6 +57,16 @@ input:focus {
   z-index: 880;
   left: 0;
 }
+@media (max-width: 768px) {
+  .sidebar {
+    left: -251px;
+  }
+  .main-content {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 24px !important;
+  }
+}
 .sidebar_col {
   max-width: 320px;
 }

@@ -14,13 +14,13 @@ const Sidebar = () => {
         </div>
         <div>
           <ul className="list-unstyled p-0 text-start mt-5">
-            <li className="px-3 py-3">
-              <Link to="/tweets" className="tweet_icon">
+            <li>
+              <Link to="/tweets" className="tweet_icon d-block w-100 px-3 py-3">
                 All Tweets
               </Link>
             </li>
-            <li className="px-3 py-3">
-              <Link to="/add-tweet" className="addtweet_icon">
+            <li >
+              <Link to="/add-tweet" className="addtweet_icon d-block w-100 px-3 py-3">
                 Add Tweet
               </Link>
             </li>
