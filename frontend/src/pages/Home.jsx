@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
 const Home = () => {
+
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
       <div className="main-wraperr">
-        <Header />
-        <Sidebar />
+        <Header openSidebar={toggleSidebar}/>
+        <Sidebar isOpen={isSidebarOpen} />
         <div className="main-content">
           <div className="row">
             <div className="col-md-4">

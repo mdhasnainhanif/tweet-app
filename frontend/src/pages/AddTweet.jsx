@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import Button from "../components/Button";
 import AddIcon from "../assets/images/icons/plus-white.svg";
 
 const AddTweet = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
   return (
     <>
       <div className="main-wraperr">
-        <Header />
-        <Sidebar />
+      <Header openSidebar={toggleSidebar}/>
+        <Sidebar isOpen={isSidebarOpen} />
         <div className="main-content">
           <div className="container">
             <h2 className="mb-3 text-start">Add Tweets</h2>
             <div className="row mt-5">
-              <div className="col-6">
+              <div className="col-md-6 col-12">
                 <form>
                   <div class="mb-3">
                     <label

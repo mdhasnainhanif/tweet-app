@@ -56,10 +56,15 @@ input:focus {
   background-color: #fff;
   z-index: 880;
   left: 0;
+  transition: 0.4s;
 }
 @media (max-width: 768px) {
-  .sidebar {
+  .open {
     left: -251px;
+    top: 0px;
+    position: fixed;
+    /* border: 2px solid red;
+    animation: 0.5s ease-in-out fadeInDown; */
   }
   .main-content {
     padding-left: 10px !important;

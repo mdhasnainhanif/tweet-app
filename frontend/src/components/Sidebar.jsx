@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import User from "../assets/images/user.png";
 
-const Sidebar = () => {
+const Sidebar = ({isOpen}) => {
   return (
     <>
-      <aside className="sidebar py-4">
+      <aside className={`${isOpen ? 'open ' : ''}sidebar py-4`}>
         <h2 className="text-center fw-bold">Tweet App</h2>
         <div className="mt-4">
           <Link to="/">
