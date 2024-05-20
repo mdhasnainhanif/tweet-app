@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../global.css";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
@@ -10,6 +10,8 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -31,20 +33,20 @@ const Signup = () => {
         "http://localhost:8000/api/auth/signup",
         user
       );
+
       console.log("Signup successful:", response.data);
-      // Handle success (e.g., redirect to login page or show a success message)
+      navigate('/login')
     } catch (err) {
       if (err.response && err.response.data) {
         console.error("Signup failed:", err.response.data);
-        setError(err.response.data.message); // Set error message to state
+        setError(err.response.data.message);
       } else {
         console.error("Signup failed:", err.message);
-        setError("An unexpected error occurred."); // General error message
+        setError("An unexpected error occurred.");
       }
     }
   };
 
-  // Function to clear error when user starts typing
   const clearError = () => {
     setError(null);
   };
@@ -102,7 +104,7 @@ const Signup = () => {
             <p className="text-start my-2">
               Already have an account?
               <Link to="/login" className="fw-bold">
-                Login
+                &nbsp;Login
               </Link>
             </p>
             <Button name="Sign Up" className="btn btn-primary mt-3 d-block" type="submit" />

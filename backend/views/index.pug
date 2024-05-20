@@ -30,6 +30,7 @@ html(lang="en")
     each tweet in tweets
       .card
         .container
+        h4= tweet.firstName +" "+ tweet.lastName
           if tweet.description
           p= "Description: " + tweet.description
           p= "Time: " + tweet.createdAt

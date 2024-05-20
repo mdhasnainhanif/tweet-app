@@ -174,3 +174,6 @@ ul.submenu-wrapper {
 .filter_invert{
   filter: invert(1) !important;
 }
+.pointer:hover{
+  cursor: pointer;
+}

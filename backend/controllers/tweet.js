@@ -5,10 +5,8 @@ const User = require("../models/user.js");
 exports.createTweet = async (req, res, next) => {
 
     const { userId, description } = req.body
-    // console.log(userId, description)
     try {
         const user = await User.findById(userId)
-        // console.log(user)
         if (!user) {
             res.status(404).json({ message: "User not found" })
         }
@@ -29,17 +27,26 @@ exports.createTweet = async (req, res, next) => {
     }
 };
 
+
 exports.deleteTweet = async (req, res, next) => {
     try {
-        const tweet = await Tweet.findById(req.params.id);
-        if (tweet.userId === req.body.id) {
-            await tweet.deleteOne();
-            res.status(200).json("tweet has been deleted");
-        }
+      const tweet = await Tweet.findById(req.params.id);
+      if (!tweet) {
+        return next(handleError(404, "Tweet not found"));
+      }
+      if(tweet.userId !== req.user.id){
+        res.status(400).json({message: "you can delete only your tweets"})
+      }
+      if (tweet.userId.toString() === req.user.id) {
+        await tweet.deleteOne();
+        res.status(200).json({ message: "Tweet has been deleted" });
+      } else {
+        return next(handleError(403, "You are not authorized to delete this tweet"));
+      }
     } catch (err) {
-        next(handleError(500, err));
+      next(handleError(500, err.message));
     }
-};
+  };
 
 exports.updateTweet = async (req, res, next) => {
     try {
