@@ -177,3 +177,10 @@ ul.submenu-wrapper {
 .pointer:hover{
   cursor: pointer;
 }
+.coverPhoto{
+  width: 100%;
+  background: url(./assets/images/cover.jpg);
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}

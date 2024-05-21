@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
+import ProfileCover from "../components/ProfileCover";
 
 const Home = () => {
 
@@ -30,21 +31,23 @@ const Home = () => {
   }, []);
 
 
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  // const [isSidebarOpen, setSidebarOpen] = useState(true);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
+  // const toggleSidebar = () => {
+  //   setSidebarOpen(!isSidebarOpen);
+  // };
 
   return (
     <>
       <div className="main-wraperr">
-        <Header openSidebar={toggleSidebar}/>
-        <Sidebar isOpen={isSidebarOpen} />
-        <div className="main-content">
+        <Header />
+        <ProfileCover/>
+        {/* openSidebar={toggleSidebar} */}
+        {/* <Sidebar isOpen={isSidebarOpen} /> */}
+        <div className="main-content"> 
           <div className="row">
             <div className="col-md-4">
-              <div className="count_card bg-primary px-4 py-3 rounded ">
+              {/* <div className="count_card bg-primary px-4 py-3 rounded ">
                 <h4 className="text-light text-start">Tweets Count</h4>
                 {
                   loading ? (
@@ -57,7 +60,7 @@ const Home = () => {
                     <h5 className="text-light text-start mt-3">{tweetsCount?.length}</h5>
                   )
                 }
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

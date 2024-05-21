@@ -23,11 +23,11 @@ const Tweets = () => {
       setLoading(true);
       try {
         const response = await axios.get("http://localhost:8000/api/tweets/alltweets", { withCredentials: true });
-        console.log("All Tweets", response.data);
-        setTweets(response.data.data);
+        console.log("All Tweets", response?.data);
+        setTweets(response?.data?.data || []);
       } catch (error) {
-        console.error("Error fetching tweets:", error.message);
-        setError("An unexpected error occurred.");
+        console.log("Error fetching tweets:", error.message);
+        // setError("An unexpected error occurred.");
       } finally {
         setLoading(false);
       }
@@ -35,7 +35,6 @@ const Tweets = () => {
 
     fetchTweets();
   }, []);
-
   const userId = localStorage.getItem('userid');
   const token = localStorage.getItem('access_token');
 
@@ -55,7 +54,7 @@ const Tweets = () => {
       console.error("Error deleting tweet:", error.response ? error.response.data : error.message);
       if(error?.message === "Request failed with status code 400"){
 
-        setError("You can delete only your own Tweets");
+        // setError("You can delete only your own Tweets");
       }
     }
   };
