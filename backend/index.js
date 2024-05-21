@@ -1,24 +1,21 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const authRoutes = require("./routes/auths.js"); 
 const tweetRoutes = require("./routes/tweets.js");
 const pug = require('pug');
 const axios = require('axios');
 
 const app = express();
-dotenv.config();
 
-mongoose.connect(process.env.MONGO).then(() => {
+const MONGO = 'mongodb+srv://hassanzindani030:ojvYwKeiRPd3pShX@cluster0.1sbjnwu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+
+mongoose.connect(MONGO).then(() => {
     console.log("DB connected");
 }).catch((err) => {
     console.log(err);
 });
 
 app.use(express.json());
-app.use(cookieParser());
 
 app.use(cors({
   origin: 'http://localhost:3000', 
@@ -26,7 +23,6 @@ app.use(cors({
   credentials: true 
 }));
 
-app.use("/api/auth", authRoutes);
 app.use("/api/tweets", tweetRoutes);
 
 app.set('view engine', 'pug');
