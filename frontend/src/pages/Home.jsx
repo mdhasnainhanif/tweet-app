@@ -13,8 +13,6 @@ const Home = () => {
   const [error, setError] = useState(null);
   const [tweets, setTweets] = useState([]);
   const [tweetContent, setTweetContent] = useState("");
-  const userId = localStorage.getItem("userid");
-  const token = localStorage.getItem("access_token");
 
   const fetchTweets = async () => {
     setLoading(true);
@@ -42,17 +40,10 @@ const Home = () => {
     try {
       const response = await axios.post(
         "http://localhost:8000/api/tweets",
-        { content: tweetContent, userId: userId },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        }
+        { content: tweetContent}
       );
       console.log("Tweet added successfully:", response.data);
       setTweetContent("");
-      // Prepend the new tweet to the existing tweets
       setTweets([response.data.data, ...tweets]);
     } catch (error) {
       console.error(
@@ -65,14 +56,7 @@ const Home = () => {
 
   const handleDelete = async (tweetId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/tweets/${tweetId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        data: {
-          userId: userId,
-        },
-      });
+      await axios.delete(`http://localhost:8000/api/tweets/${tweetId}`);
       setTweets(tweets.filter((tweet) => tweet._id !== tweetId));
     } catch (error) {
       console.error(

@@ -16,9 +16,8 @@ function TweetCard({ tweet, onDelete }) {
             <div><p className="fw-bold text-primary mb-0">{tweet?.fullName}</p></div>
             <div>
               <button className="btn tweet_delete p-0 ms-2">
-                <img className="me-1" src={DeleteIcon} alt="delete" onClick={() => onDelete(tweet._id)} />
+                <img src={DeleteIcon} alt="delete" onClick={() => onDelete(tweet._id)} />
               </button>
-
             </div>
           </div>
         </Card.Header>
