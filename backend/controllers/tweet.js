@@ -29,8 +29,7 @@ exports.deleteTweet = async (req, res, next) => {
 
 exports.getAllTweets = async (req, res, next) => {
     try {
-        const tweets = await Tweet.find();
-        console.log(tweets);
+        const tweets = await Tweet.find().sort({ createdAt: -1 }); // Sort by createdAt in descending order
 
         if (tweets.length < 1) {
             return res.status(403).json({ message: "Tweets not found" });
