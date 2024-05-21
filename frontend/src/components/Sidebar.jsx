@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import User from "../assets/images/user.png";
+import User from "../assets/images/user.jpg";
 
 const Sidebar = ({ isOpen }) => {
   const user = JSON.parse(localStorage.getItem('user'));
