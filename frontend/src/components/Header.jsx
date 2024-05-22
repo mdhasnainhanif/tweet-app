@@ -2,15 +2,9 @@ import React from "react";
 import User from "../assets/images/user.jpg";
 import Menu from "../assets/images/icons/menu.svg";
 import LogOut from "../assets/images/icons/log-out.svg";
-import { useNavigate } from "react-router-dom";
+
 
 const Header = ({ openSidebar }) => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/login");
-  };
 
   return (
     <header className="py-3 px-md-5 px-2">
@@ -32,7 +26,6 @@ const Header = ({ openSidebar }) => {
                 className="ms-3 pointer"
                 src={LogOut}
                 alt="LogOut"
-                onClick={handleLogout}
               />
             </div>
             <div className="d-block d-md-none ms-2">
