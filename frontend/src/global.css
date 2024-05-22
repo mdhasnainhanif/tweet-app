@@ -19,7 +19,8 @@ p,
 span,
 input,
 ul,
-li {
+li,
+label {
   font-family: "jost-regular";
 }
 .login_section {
